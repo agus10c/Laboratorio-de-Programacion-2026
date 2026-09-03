@@ -5,7 +5,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-public class MonitoreoArduino {
+class MonitoreoArduino {
 
     // Simula la lectura por puerto serie/USB desde la placa Arduino
     private static double leerSensorArduino() {
@@ -27,7 +27,7 @@ public class MonitoreoArduino {
         Runnable tareaLectura = () -> {
             String hora = LocalTime.now().format(formatter);
             double temp = leerSensorArduino();
-            
+
             System.out.printf("[%s] Arduino (COM3) -> Temperatura: %.2f °C\n", hora, temp);
 
             // Alerta si supera un umbral crítico
@@ -45,7 +45,8 @@ public class MonitoreoArduino {
         // 4. Unidad: TimeUnit.SECONDS
         scheduler.scheduleAtFixedRate(tareaLectura, 1, 2, TimeUnit.SECONDS);
 
-        // Apagar el scheduler automáticamente tras 10 segundos para finalizar la demostración
+        // Apagar el scheduler automáticamente tras 10 segundos para finalizar la
+        // demostración
         scheduler.schedule(() -> {
             System.out.println("\nFinalizando monitoreo y liberando puerto...");
             scheduler.shutdown();

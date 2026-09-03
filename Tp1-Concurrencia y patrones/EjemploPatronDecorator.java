@@ -1,11 +1,11 @@
 // 1. Componente Base
-public interface Arma {
+interface Arma {
     String getDescripcion();
     int getDanio();
 }
 
 // 2. Componente Concreto
-public class EspadaBasica implements Arma {
+class EspadaBasica implements Arma {
     @Override
     public String getDescripcion() { return "Espada de Hierro"; }
 
@@ -14,7 +14,7 @@ public class EspadaBasica implements Arma {
 }
 
 // 3. Decorador Abstracto
-public abstract class ModificadorArma implements Arma {
+abstract class ModificadorArma implements Arma {
     protected Arma armaDecorada;
 
     public ModificadorArma(Arma arma) {
@@ -29,7 +29,7 @@ public abstract class ModificadorArma implements Arma {
 }
 
 // 4. Decoradores Concretos
-public class EncantamientoFuego extends ModificadorArma {
+class EncantamientoFuego extends ModificadorArma {
     public EncantamientoFuego(Arma arma) { super(arma); }
 
     @Override
@@ -43,7 +43,7 @@ public class EncantamientoFuego extends ModificadorArma {
     }
 }
 
-public class GemasVampiricas extends ModificadorArma {
+class GemasVampiricas extends ModificadorArma {
     public GemasVampiricas(Arma arma) { super(arma); }
 
     @Override
@@ -58,7 +58,7 @@ public class GemasVampiricas extends ModificadorArma {
 }
 
 // 5. Ejecución para la Exposición
-public class MainDecorator {
+class MainDecorator {
     public static void main(String[] args) {
         // Creamos un arma base
         Arma espada = new EspadaBasica();
