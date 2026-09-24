@@ -1,11 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Administración</title>
-</head>
-<body>
-        
-</body>
+    <link rel="stylesheet" href="Administracion.css" />
+  </head>
+  <body>
+    <header class="encabezado-principal">
+      <h1>Panel de administración</h1>
+    </header>
+
+    <main>
+      <section class="resumen">
+        <h2 id="titulo-resumen">Resumen general</h2>
+        <article class="tarjeta">
+          <h3>Materiales registrados</h3>
+          <p>10</p>
+        </article>
+        <article class="tarjeta">
+          <h3 id="titulo-proyectos">Proyectos activos</h3>
+          <ul class="lista-proyectos">
+            <li>
+              <strong>Proyecto A</strong>
+            </li>
+            <li>
+              <strong>Proyecto B</strong>
+            </li>
+            <li>
+              <strong>Proyecto C</strong>
+            </li>
+          </ul>
+        </article>
+        <article class="tarjeta">
+          <h3>Valor total del stock</h3>
+          <p>$7.003.400</p>
+        </article>
+      </section>
+
+      <section class="inventario">
+        <h2 id="titulo-inventario">Inventario de materiales</h2>
+        <form class="buscador" role="search">
+          <label for="buscar-material">Buscar material</label>
+          <input
+            id="buscar-material"
+            name="buscar-material"
+            type="search"
+            placeholder="Ej.: OSB o adhesivo"
+          />
+        </form>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Material</th>
+              <th scope="col">Unidad</th>
+              <th scope="col">Inicial</th>
+              <th scope="col">Compras</th>
+              <th scope="col">
+                en uso <button type="button" id="agregar-proyecto">+</button>
+              </th>
+              <th scope="col">Stock real</th>
+              <th scope="col">Valor unitario</th>
+              <th scope="col">Costo total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="Detalle.html">EPS X 120-20</a></th>
+            </tr>
+            <tr>
+              <th scope="row"><a href="Detalle.html">EPS X 92-20</a></th>
+            </tr>
+            <tr>
+              <th scope="row"><a href="Detalle.html">OSB 9,5 X U</a></th>
+            </tr>
+            <tr>
+              <th scope="row"><a href="Detalle.html">OSB 18,1 X U</a></th>
+            </tr>
+            <tr>
+              <th scope="row">
+                <a href="Detalle.html">Adhesivo vinílico x 20 kg</a>
+              </th>
+            </tr>
+            <tr>
+              <th scope="row">
+                <a href="Detalle.html">Adhesivo poliuretánico POLIKAL</a>
+              </th>
+            </tr>
+            <tr>
+              <th scope="row"><a href="Detalle.html">SHS 3,5-40 x 50U</a></th>
+            </tr>
+            <tr>
+              <th scope="row">
+                <a href="Detalle.html">SNK/HBS 6-100 x 100U</a>
+              </th>
+            </tr>
+            <tr>
+              <th scope="row">
+                <a href="Detalle.html">Tubo poliuretano 750 Fischer</a>
+              </th>
+            </tr>
+            <tr>
+              <th scope="row">
+                <a href="Detalle.html">Membrana acústica, rollo 50 m²</a>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer>
+      <p>Stock· Sistema de control de materiales de construcción.</p>
+    </footer>
+  </body>
 </html>
