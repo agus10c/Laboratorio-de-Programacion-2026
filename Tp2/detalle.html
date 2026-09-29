@@ -1,8 +1,165 @@
-<!-- 
-Código interno.
-Categoría.
-Unidad de medida y presentación.
-Stock físico contado.
-Stock comprometido en obras.
-Stock disponible.
-Última fecha de conteo.
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle de Materiales - Control de Stock</title>
+    <!-- Hoja de estilos compartida con administración -->
+    <link rel="stylesheet" href="Administracion.css" />
+    <!-- Estilos específicos y complementarios de detalle -->
+    <link rel="stylesheet" href="detalle.css" />
+  </head>
+  <body>
+    <!-- Encabezado Principal -->
+    <header class="encabezado-principal">
+      <div class="contenedor-cabecera">
+        <div class="titulos-cabecera">
+          <nav class="miga-de-pan" aria-label="Navegación secundaria">
+            <a href="administracion.html" class="enlace-volver" title="Volver al panel general de administración">
+              ← Volver al Panel de Administración
+            </a>
+          </nav>
+          <h1 id="det-nombre" class="nombre-material-destacado">Detalle del Material </h1>
+          <p class="subtitulo-cabecera">
+            Ficha técnica, trazabilidad y control de existencias en depósito
+          </p>
+        </div>
+        <div class="badge-resumen-cabecera" aria-label="Total de productos">
+          <span>📦 Catálogo oficial: 10 materiales</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+            <!-- Ficha Técnica Hero del Material Seleccionado -->
+      <section class="ficha-material" id="ficha-material" aria-labelledby="det-nombre">
+        <div class="ficha-grid">
+          <!-- Columna Izquierda: Imagen y Navegación entre Items -->
+          <div class="columna-visual">
+            <div class="contenedor-imagen">
+              <span class="insignia-imagen" id="det-insignia-cat">Categoría</span>
+              <img
+                id="det-imagen"
+                src="img/EPS X 120-20.jpg"
+                alt="Fotografía del material"
+                class="imagen-producto"
+                loading="eager"
+              />
+            </div>
+            
+            <nav class="navegacion-rapida" aria-label="Navegación entre materiales">
+              <button type="button" id="btn-anterior" class="boton-nav-rapida" title="Material anterior (Flecha Izquierda)">
+                ← Anterior
+              </button>
+              <button type="button" id="btn-siguiente" class="boton-nav-rapida" title="Siguiente material (Flecha Derecha)">
+                Siguiente →
+              </button>
+            </nav>
+          </div>
+
+          <!-- Columna Derecha: Datos Técnicos Requeridos -->
+          <div class="columna-informacion">
+            <div class="cabecera-info">
+              <div class="etiquetas-producto">
+                <span class="badge-codigo" id="det-codigo">MAT-EPS-12020</span>
+                <span class="badge-categoria" id="det-categoria">Aislaciones Térmicas</span>
+                <span class="badge-estado-stock estado-optimo" id="det-estado">● Disponible</span>
+              </div>
+              <h2 id="det-nombre" class="nombre-material-destacado">EPS X 120-20</h2>
+              <p id="det-descripcion" class="descripcion-material">
+                Placa de Poliestireno Expandido (EPS) de alta densidad para aislación térmica y acústica.
+              </p>
+            </div>
+
+            <!-- Grilla con la información obligatoria requerida -->
+            <dl class="grilla-datos-tecnicos">
+              <div class="dato-caja">
+                <dt>Código interno</dt>
+                <dd id="det-codigo-val">MAT-EPS-12020</dd>
+              </div>
+
+              <div class="dato-caja">
+                <dt>Categoría</dt>
+                <dd id="det-categoria-val">Aislaciones Térmicas</dd>
+              </div>
+
+              <div class="dato-caja ancho-completo">
+                <dt>Unidad de medida y presentación</dt>
+                <dd id="det-unidad-val">Placa (120 x 20 mm - Espesor 20 mm)</dd>
+              </div>
+
+              <div class="dato-caja">
+                <dt>Última fecha de conteo</dt>
+                <dd id="det-fecha-val">25/09/2026</dd>
+              </div>
+
+              <div class="dato-caja">
+                <dt>Ubicación en depósito</dt>
+                <dd id="det-ubicacion-val">Pasillo A - Estantería 01</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+        <!-- Tarjetas de Métricas de Stock (Estilo .tarjeta de administracion.html) -->
+        <div class="resumen-stock-detalle" aria-label="Resumen de existencias de este material">
+          <!-- Stock Físico Contado -->
+          <article class="tarjeta-stock">
+            <h3>Stock físico contado</h3>
+            <p class="numero-stock">
+              <span id="det-stock-fisico">350</span>
+              <span class="unidad-etiqueta" id="det-unidad-fisico">placas</span>
+            </p>
+            <span class="nota-stock">Inventario auditado físicamente</span>
+          </article>
+
+          <!-- Stock Comprometido en Obras -->
+          <article class="tarjeta-stock destacado-comprometido">
+            <h3>Stock comprometido en obras</h3>
+            <p class="numero-stock">
+              <span id="det-stock-comprometido">120</span>
+              <span class="unidad-etiqueta" id="det-unidad-comprometido">placas</span>
+            </p>
+            <span class="nota-stock" id="det-proyectos-comprometidos">Proyecto A · Proyecto C</span>
+          </article>
+
+          <!-- Stock Disponible -->
+          <article class="tarjeta-stock destacado-disponible">
+            <h3>Stock disponible</h3>
+            <p class="numero-stock">
+              <span id="det-stock-disponible">230</span>
+              <span class="unidad-etiqueta" id="det-unidad-disponible">placas</span>
+            </p>
+            <span class="nota-stock">Disponible para asignación inmediata</span>
+          </article>
+
+          <!-- Nivel de Disponibilidad -->
+          <article class="tarjeta-stock disponibilidad-porcentaje">
+            <h3>Disponibilidad operativa</h3>
+            <p class="numero-stock" id="det-porcentaje-disp">
+              66% disponible
+            </p>
+            <div class="barra-disp-fondo" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="66">
+              <div class="barra-disp-relleno" id="det-barra-disp" style="width: 66%;"></div>
+            </div>
+            <span class="nota-stock">Ratio: disponible vs. contado</span>
+          </article>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="pie-principal">
+      <p>Stock · Sistema de control de materiales de construcción.</p>
+      <p>
+        <a href="administracion.html" class="enlace-pie">
+          ← Volver a la Administración de Stock
+        </a>
+      </p>
+    </footer>
+
+    <!-- Script de interactividad y datos -->
+    <script src="detalle.js"></script>
+  </body>
+</html>

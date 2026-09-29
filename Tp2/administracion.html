@@ -12,6 +12,36 @@
     </header>
 
     <main>
+      <!-- Barra de Filtros, Búsqueda y Selección Directa -->
+      <section class="seccion-controles" aria-label="Controles de búsqueda y filtrado">
+        <div class="fila-busqueda">
+          <div class="grupo-campo buscador" role="search">
+            <label for="buscar-detalle">Buscar material</label>
+            <input
+              id="buscar-detalle"
+              name="buscar-detalle"
+              type="search"
+              placeholder="Ej.: EPS, OSB, FISCHER o código MAT-..."
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="grupo-campo">
+            <label for="selector-directo">Selección rápida de material</label>
+            <select id="selector-directo" class="selector-material" aria-label="Elegir material de la lista">
+              <!-- Opciones generadas dinámicamente por detalle.js -->
+            </select>
+          </div>
+        </div>
+
+        <div class="contenedor-categorias">
+          <span class="etiqueta-filtro-cat">Filtrar catálogo por categoría:</span>
+          <div class="pildoras-categorias" id="pildoras-categorias" role="toolbar" aria-label="Filtro de categorías">
+            <!-- Píldoras generadas dinámicamente por detalle.js -->
+          </div>
+        </div>
+      </section>
+
       <section class="resumen">
         <h2 id="titulo-resumen">Resumen general</h2>
         <article class="tarjeta">
@@ -66,43 +96,43 @@
           </thead>
           <tbody>
             <tr>
-              <th scope="row"><a href="Detalle.html">EPS X 120-20</a></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <th scope="row"><a href="detalle.html?id=1">EPS X 120-20</a></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
             </tr>
             <tr>
-              <th scope="row"><a href="Detalle.html">EPS X 92-20</a></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <th scope="row"><a href="detalle.html?id=2">EPS X 92-20</a></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
             </tr>
             <tr>
-              <th scope="row"><a href="Detalle.html">OSB 9,5 X U</a></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <th scope="row"><a href="detalle.html?id=3">OSB 9,5 X U</a></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
             </tr>
             <tr>
-              <th scope="row"><a href="Detalle.html">OSB 18,1 X U</a></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <th scope="row"><a href="detalle.html?id=4">OSB 18,1 X U</a></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
             </tr>
             <tr>
               <th scope="row">
-                <a href="Detalle.html">Adhesivo vinílico x 20 kg</a>
+                <a href="detalle.html?id=5">Adhesivo vinílico x 20 kg</a>
               </th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
             </tr>
             <tr>
               <th scope="row">
-                <a href="Detalle.html">Adhesivo poliuretánico POLIKAL</a>
+                <a href="detalle.html?id=6">Adhesivo poliuretánico POLIKAL</a>
               </th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
             </tr>
             <tr>
-              <th scope="row"><a href="Detalle.html">SHS 3,5-40 x 50U</a></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <th scope="row"><a href="detalle.html?id=7">SHS 3,5-40 x 50U</a></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
             </tr>
             <tr>
               <th scope="row">
-                <a href="Detalle.html">SNK/HBS 6-100 x 100U</a>
-              </th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <a href="Detalle.html">Tubo poliuretano 750 Fischer</a>
+                <a href="detalle.html?id=8">SNK/HBS 6-100 x 100U</a>
               </th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
             </tr>
             <tr>
               <th scope="row">
-                <a href="Detalle.html">Membrana acústica, rollo 50 m²</a>
+                <a href="detalle.html?id=9">Tubo poliuretano 750 Fischer</a>
+              </th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <a href="detalle.html?id=10">Membrana acústica, rollo 50 m²</a>
               </th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
             </tr>
           </tbody>
@@ -113,5 +143,7 @@
     <footer>
       <p>Stock· Sistema de control de materiales de construcción.</p>
     </footer>
+    <!-- Script de interactividad y datos -->
+    <script src="detalle.js"></script>
   </body>
 </html>
