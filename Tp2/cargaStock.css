@@ -1,0 +1,118 @@
+:root {
+  --azul: #016580;
+  --verde: #b2cb17;
+  --blanco: #ffffff;
+  --negro: #000000;
+  --sombra: 0 8px 22px rgb(0 0 0 / 12%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--negro);
+  background-color: var(--blanco);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+html,
+body {
+  height: 100%; /* ocupar toda la altura */
+  margin: 0;
+  display: flex; /* usar flexbox */
+  flex-direction: column; /* apilar header, main y footer */
+}
+
+/* Encabezado */
+.encabezado-principal {
+  padding: 1.5rem clamp(1rem, 5vw, 5rem);
+  color: var(--blanco);
+  background-color: var(--azul);
+  border-bottom: 5px solid var(--verde);
+}
+
+h1 {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+/* Contenido principal */
+main {
+  flex: 1;
+  width: min(1200px, calc(100% - 2rem));
+  margin: 2rem auto 3rem; /* este margen inferior separa el contenido del footer */
+}
+
+/* Formulario */
+form {
+  max-width: 850px;
+  margin: 24px auto;
+  background-color: var(--azul);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Campos con flexbox */
+.campo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.campo label {
+  flex: 1;
+  color: var(--verde);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: underline;
+  text-transform: capitalize;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.campo input {
+  width: 80px;
+}
+
+/* Botón */
+input[type="submit"] {
+  background-color: var(--verde);
+  color: var(--negro);
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 15px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
+}
+
+input[type="submit"]:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  padding: 2.25rem 1rem;
+  color: var(--blanco);
+  text-align: center;
+  background-color: var(--azul);
+  border-top: 5px solid var(--verde);
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
