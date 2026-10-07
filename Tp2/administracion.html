@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -10,7 +10,6 @@
     <header class="encabezado-principal">
       <h1>Panel de administración</h1>
     </header>
-
     <main>
       <section class="resumen">
         <h2 id="titulo-resumen">Resumen general</h2>
@@ -29,7 +28,7 @@
             </li>
             <li>
               <strong>Proyecto C</strong>
-            </li> 
+            </li>
           </ul>
         </article>
         <article class="tarjeta">
@@ -40,78 +39,150 @@
 
       <section class="inventario">
         <h2 id="titulo-inventario">Stock</h2>
-        <form class="buscador" role="search">
+        <!-- Barra de busqueda -->
+        <section
+          class="seccion-Busqueda"
+          aria-label="Controles de búsqueda y filtrado"
+        >
           <label for="buscar-material">Buscar material</label>
           <input
             id="buscar-material"
             name="buscar-material"
             type="search"
-            placeholder="Ej.: OSB o adhesivo"
+            placeholder="Ej.: EPS, OSB, FISCHER o código MAT-..."
+            autocomplete="off"
           />
-        </form>
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Material</th>
-              <th scope="col">Unidad</th>
-              <th scope="col">Inicial</th>
-              <th scope="col">Compras</th>
-              <th scope="col">
-                en uso <button type="button" id="agregar-proyecto">+</button>
-              </th>
-              <th scope="col">Stock real</th>
-              <th scope="col">Valor unitario</th>
-              <th scope="col">Costo total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row"><a href="Detalle.html">EPS X 120-20</a></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-            </tr>
-            <tr>
-              <th scope="row"><a href="Detalle.html">EPS X 92-20</a></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-            </tr>
-            <tr>
-              <th scope="row"><a href="Detalle.html">OSB 9,5 X U</a></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-            </tr>
-            <tr>
-              <th scope="row"><a href="Detalle.html">OSB 18,1 X U</a></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <a href="Detalle.html">Adhesivo vinílico x 20 kg</a>
-              </th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <a href="Detalle.html">Adhesivo poliuretánico POLIKAL</a>
-              </th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-            </tr>
-            <tr>
-              <th scope="row"><a href="Detalle.html">SHS 3,5-40 x 50U</a></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <a href="Detalle.html">SNK/HBS 6-100 x 100U</a>
-              </th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <a href="Detalle.html">Tubo poliuretano 750 Fischer</a>
-              </th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <a href="Detalle.html">Membrana acústica, rollo 50 m²</a>
-              </th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-            </tr>
-          </tbody>
-        </table>
+
+          <label for="selector-directo">Selección rápida de material</label>
+          <select
+            id="selector-directo"
+            class="selector-material"
+            aria-label="Elegir material de la lista"
+          ></select>
+        </section>
+        <section class="tabla-inventario">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Material</th>
+                <th scope="col">Inicial</th>
+                <th scope="col">Compras</th>
+                <th scope="col">
+                  en uso <button type="button" id="agregar-proyecto">+</button>
+                </th>
+                <th scope="col">Stock real</th>
+                <th scope="col">Costo total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">
+                  <a href="detalle.html?id=1">EPS X 120-20</a>
+                </th>
+                <td>80</td>
+                <td>20</td>
+                <td>30</td>
+                <td>70</td>
+                <td>$1.260.000</td>
+              </tr>
+              <tr>
+                <th scope="row"><a href="detalle.html?id=2">EPS X 92-20</a></th>
+                <td>65</td>
+                <td>15</td>
+                <td>18</td>
+                <td>62</td>
+                <td>$979.600</td>
+              </tr>
+              <tr>
+                <th scope="row"><a href="detalle.html?id=3">OSB 9,5 X U</a></th>
+                <td>48</td>
+                <td>10</td>
+                <td>12</td>
+                <td>46</td>
+                <td>$1.035.000</td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <a href="detalle.html?id=4">OSB 18,1 X U</a>
+                </th>
+                <td>30</td>
+                <td>6</td>
+                <td>10</td>
+                <td>26</td>
+                <td>$1.138.800</td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <a href="detalle.html?id=5">Adhesivo vinílico x 20 kg</a>
+                </th>
+                <td>16</td>
+                <td>8</td>
+                <td>7</td>
+                <td>17</td>
+                <td>$836.400</td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <a href="detalle.html?id=6">Adhesivo poliuretánico POLIKAL</a>
+                </th>
+                <td>24</td>
+                <td>12</td>
+                <td>9</td>
+                <td>27</td>
+                <td>$402.300</td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <a href="detalle.html?id=7">SHS 3,5-40 x 50U</a>
+                </th>
+                <td>40</td>
+                <td>10</td>
+                <td>18</td>
+                <td>32</td>
+                <td>$230.400</td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <a href="detalle.html?id=8">SNK/HBS 6-100 x 100U</a>
+                </th>
+                <td>25</td>
+                <td>5</td>
+                <td>11</td>
+                <td>19</td>
+                <td>$355.300</td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <a href="detalle.html?id=9">Tubo poliuretano 750 Fischer</a>
+                </th>
+                <td>18</td>
+                <td>12</td>
+                <td>14</td>
+                <td>16</td>
+                <td>$182.400</td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <a href="detalle.html?id=10"
+                    >Membrana acústica, rollo 50 m²</a
+                  >
+                </th>
+                <td>10</td>
+                <td>4</td>
+                <td>5</td>
+                <td>9</td>
+                <td>$583.200</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
       </section>
     </main>
 
     <footer>
-      <p>Stock· Sistema de control de materiales de construcción.</p>
+      <p>Gestion de Stock· Caceres, Antezana, Diaz</p>
     </footer>
+    <!-- Script de interactividad y datos -->
+    <script src="detalle.js"></script>
   </body>
 </html>
