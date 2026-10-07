@@ -19,25 +19,22 @@
               ← Volver al Panel de Administración
             </a>
           </nav>
-          <h1 id="det-nombre" class="nombre-material-destacado">Detalle del Material </h1>
+          <h1 class="titulo-cabecera">Detalle del Material</h1>
           <p class="subtitulo-cabecera">
             Ficha técnica, trazabilidad y control de existencias en depósito
           </p>
-        </div>
-        <div class="badge-resumen-cabecera" aria-label="Total de productos">
-          <span>📦 Catálogo oficial: 10 materiales</span>
         </div>
       </div>
     </header>
 
     <main>
-            <!-- Ficha Técnica Hero del Material Seleccionado -->
+      <!-- Ficha Técnica Hero del Material Seleccionado -->
       <section class="ficha-material" id="ficha-material" aria-labelledby="det-nombre">
         <div class="ficha-grid">
-          <!-- Columna Izquierda: Imagen y Navegación entre Items -->
+          <!-- Columna Izquierda: Fotografía del Material -->
           <div class="columna-visual">
             <div class="contenedor-imagen">
-              <span class="insignia-imagen" id="det-insignia-cat">Categoría</span>
+              <span class="insignia-imagen" id="det-insignia-cat">Aislaciones Térmicas</span>
               <img
                 id="det-imagen"
                 src="img/EPS X 120-20.jpg"
@@ -46,15 +43,6 @@
                 loading="eager"
               />
             </div>
-            
-            <nav class="navegacion-rapida" aria-label="Navegación entre materiales">
-              <button type="button" id="btn-anterior" class="boton-nav-rapida" title="Material anterior (Flecha Izquierda)">
-                ← Anterior
-              </button>
-              <button type="button" id="btn-siguiente" class="boton-nav-rapida" title="Siguiente material (Flecha Derecha)">
-                Siguiente →
-              </button>
-            </nav>
           </div>
 
           <!-- Columna Derecha: Datos Técnicos Requeridos -->
@@ -63,11 +51,10 @@
               <div class="etiquetas-producto">
                 <span class="badge-codigo" id="det-codigo">MAT-EPS-12020</span>
                 <span class="badge-categoria" id="det-categoria">Aislaciones Térmicas</span>
-                <span class="badge-estado-stock estado-optimo" id="det-estado">● Disponible</span>
               </div>
               <h2 id="det-nombre" class="nombre-material-destacado">EPS X 120-20</h2>
               <p id="det-descripcion" class="descripcion-material">
-                Placa de Poliestireno Expandido (EPS) de alta densidad para aislación térmica y acústica.
+                Placa de Poliestireno Expandido (EPS) de alta densidad para aislación térmica y acústica. Brinda máxima eficiencia energética en muros perimetrales y techos livianos, con absorción nula de humedad.
               </p>
             </div>
 
@@ -101,7 +88,7 @@
           </div>
         </div>
 
-        <!-- Tarjetas de Métricas de Stock (Estilo .tarjeta de administracion.html) -->
+        <!-- Tarjetas de Métricas de Stock -->
         <div class="resumen-stock-detalle" aria-label="Resumen de existencias de este material">
           <!-- Stock Físico Contado -->
           <article class="tarjeta-stock">
@@ -120,7 +107,7 @@
               <span id="det-stock-comprometido">120</span>
               <span class="unidad-etiqueta" id="det-unidad-comprometido">placas</span>
             </p>
-            <span class="nota-stock" id="det-proyectos-comprometidos">Proyecto A · Proyecto C</span>
+            <span class="nota-stock" id="det-proyectos-comprometidos">Proyecto A (70 u) · Proyecto C (50 u)</span>
           </article>
 
           <!-- Stock Disponible -->
@@ -146,7 +133,6 @@
           </article>
         </div>
       </section>
-
     </main>
 
     <!-- Pie de página -->

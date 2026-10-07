@@ -248,7 +248,7 @@ function detectarMaterialDesdeURL() {
 }
 
 /**
- * Rellenar el <select> desplegable
+ * Rellenar el <select> desplegable si existe
  */
 function poblarSelectorDirecto() {
   if (!elSelectorDirecto) return;
@@ -263,7 +263,7 @@ function poblarSelectorDirecto() {
 }
 
 /**
- * Generar píldoras de categorías dinámicas
+ * Generar píldoras de categorías dinámicas si existe el contenedor
  */
 function generarPildorasCategorias() {
   if (!elContenedorPildoras) return;
@@ -293,16 +293,20 @@ function generarPildorasCategorias() {
  */
 function configurarEventos() {
   // Cambio en select desplegable
-  elSelectorDirecto.addEventListener("change", (e) => {
-    const nuevoId = parseInt(e.target.value, 10);
-    seleccionarMaterial(nuevoId, true);
-  });
+  if (elSelectorDirecto) {
+    elSelectorDirecto.addEventListener("change", (e) => {
+      const nuevoId = parseInt(e.target.value, 10);
+      seleccionarMaterial(nuevoId, true);
+    });
+  }
 
   // Búsqueda en tiempo real
-  elBuscarDetalle.addEventListener("input", (e) => {
-    filtroTexto = e.target.value.trim().toLowerCase();
-    renderizarTabla();
-  });
+  if (elBuscarDetalle) {
+    elBuscarDetalle.addEventListener("input", (e) => {
+      filtroTexto = e.target.value.trim().toLowerCase();
+      renderizarTabla();
+    });
+  }
 
   // Botones anterior / siguiente
   if (elBtnAnterior) {
@@ -320,18 +324,6 @@ function configurarEventos() {
       seleccionarMaterial(MATERIALES[nextIdx].id, true);
     });
   }
-
-  // Navegación con flechas del teclado (izquierda / derecha)
-  window.addEventListener("keydown", (e) => {
-    if (document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "SELECT") {
-      return;
-    }
-    if (e.key === "ArrowLeft") {
-      elBtnAnterior.click();
-    } else if (e.key === "ArrowRight") {
-      elBtnSiguiente.click();
-    }
-  });
 
   // Simulador de Reserva
   if (elBtnSimular && elInputSimulador) {
@@ -364,6 +356,11 @@ function seleccionarMaterial(id, actualizarURL = true) {
 
   materialSeleccionadoId = id;
 
+  // Actualizar título de la página
+  if (mat.nombre) {
+    document.title = `${mat.nombre} - Detalle del Material`;
+  }
+
   // Actualizar selector desplegable
   if (elSelectorDirecto) {
     elSelectorDirecto.value = id;
@@ -386,7 +383,7 @@ function seleccionarMaterial(id, actualizarURL = true) {
   if (elDetNombre) elDetNombre.textContent = mat.nombre;
   if (elDetDescripcion) elDetDescripcion.textContent = mat.descripcion;
 
-  // Actualizar estado
+  // Actualizar estado si el elemento existe
   if (elDetEstado) {
     if (porcentajeDisponible > 30) {
       elDetEstado.textContent = "● Disponible para despacho";
@@ -416,7 +413,13 @@ function seleccionarMaterial(id, actualizarURL = true) {
   if (elDetUnidadDisponible) elDetUnidadDisponible.textContent = mat.unidadCorta;
 
   if (elDetPorcentajeDisp) elDetPorcentajeDisp.textContent = `${porcentajeDisponible}% disponible`;
-  if (elDetBarraDisp) elDetBarraDisp.style.width = `${porcentajeDisponible}%`;
+  if (elDetBarraDisp) {
+    elDetBarraDisp.style.width = `${porcentajeDisponible}%`;
+    const progressbar = elDetBarraDisp.closest('[role="progressbar"]');
+    if (progressbar) {
+      progressbar.setAttribute("aria-valuenow", porcentajeDisponible);
+    }
+  }
 
   // Resetear simulador al cambiar de material
   if (elInputSimulador) elInputSimulador.value = "";
@@ -492,7 +495,6 @@ function renderizarTabla() {
     // Click en la fila completa para seleccionar
     tr.addEventListener("click", (e) => {
       seleccionarMaterial(mat.id, true);
-      // Desplazar suavemente a la ficha si el usuario está abajo
       const ficha = document.getElementById("ficha-material");
       if (ficha && window.scrollY > ficha.offsetTop + 200) {
         ficha.scrollIntoView({ behavior: "smooth", block: "start" });
