@@ -10,3 +10,8 @@ Materiales iniciales para el inventario
 8. SNK/HBS 6-100 x 100U
 9. TUBO POLIURETANO 750 FISCHER --- 12x6+9u
 10. MEMBRANA ACUSTICA. Rollo 50m2.
+
+Colores
+#016580
+#FFFFFF
+#B2CB17
