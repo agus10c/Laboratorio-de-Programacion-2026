@@ -23,10 +23,10 @@ body {
 
 html,
 body {
-  height: 100%; /* ocupar toda la altura */
+  height: 100%;
   margin: 0;
-  display: flex; /* usar flexbox */
-  flex-direction: column; /* apilar header, main y footer */
+  display: flex;
+  flex-direction: column;
 }
 
 /* Encabezado */
@@ -47,7 +47,7 @@ h1 {
 main {
   flex: 1;
   width: min(1200px, calc(100% - 2rem));
-  margin: 2rem auto 3rem; /* este margen inferior separa el contenido del footer */
+  margin: 2rem auto 3rem;
 }
 
 /* Formulario */
@@ -65,7 +65,7 @@ form {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
 }
 
 .campo label {
@@ -80,6 +80,10 @@ form {
 
 .campo input {
   width: 80px;
+  padding: 3px;
+  border-radius: 1px solid var(--verde);
+  background-color: var(--blanco);
+  letter-spacing: 0.5px;
 }
 
 /* Botón */
@@ -99,6 +103,7 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
 }
 
 /* Footer */
@@ -115,4 +120,17 @@ footer p {
   font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.5px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .campo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .campo input {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
 }
