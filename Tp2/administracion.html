@@ -11,36 +11,6 @@
       <h1>Panel de administración</h1>
     </header>
     <main>
-      <!-- Barra de Filtros, Búsqueda y Selección Directa -->
-      <section class="seccion-controles" aria-label="Controles de búsqueda y filtrado">
-        <div class="fila-busqueda">
-          <div class="grupo-campo buscador" role="search">
-            <label for="buscar-detalle">Buscar material</label>
-            <input
-              id="buscar-detalle"
-              name="buscar-detalle"
-              type="search"
-              placeholder="Ej.: EPS, OSB, FISCHER o código MAT-..."
-              autocomplete="off"
-            />
-          </div>
-
-          <div class="grupo-campo">
-            <label for="selector-directo">Selección rápida de material</label>
-            <select id="selector-directo" class="selector-material" aria-label="Elegir material de la lista">
-              <!-- Opciones generadas dinámicamente por detalle.js -->
-            </select>
-          </div>
-        </div>
-
-        <div class="contenedor-categorias">
-          <span class="etiqueta-filtro-cat">Filtrar catálogo por categoría:</span>
-          <div class="pildoras-categorias" id="pildoras-categorias" role="toolbar" aria-label="Filtro de categorías">
-            <!-- Píldoras generadas dinámicamente por detalle.js -->
-          </div>
-        </div>
-      </section>
-
       <section class="resumen">
         <h2 id="titulo-resumen">Resumen general</h2>
         <article class="tarjeta">
